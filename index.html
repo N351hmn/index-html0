@@ -99,8 +99,9 @@
       }
       .slide img {
         border: 1px solid black;
-        width: 250px;
-        height: 250px;
+        width: 100%;
+        max-width: 250px;
+        height: auto;
         object-fit: cover;
         border-radius: 10px;
         flex-shrink: 0;
@@ -129,6 +130,41 @@
        text-align: left;
        text-shadow: 1px 2px 1px rgb(77, 10, 27);
        transform: translateY(50px);
+        @media (max-width: 900px) {
+            .container {
+                width: 90%;
+            }
+            .slider {
+                width: 90%;
+            }
+        }
+        @media (max-width: 600px) {
+            .container{
+                width: 95%;
+                padding: 5px;
+            }
+            .container a {
+                font-size: 18px;
+                padding: 5px 8px;
+            }
+            .variables a {
+                font-size: 18px;
+                padding: 10px;
+            }
+            .slider {
+                width: 100%;
+                height: auto;
+            }
+            .slide {
+                width: 200px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -228,8 +264,8 @@
 <section id="contact-us">
   <h2>Contact us</h2>
     <p>You Can Contact Us Through: </p>
-    <a href="https://web.facebook.com/?_rdc=1&_rdr#"><img scr="facebook.png" alt="facebook logo"></a>
-    <a href="https://www.instagram.com/"><img scr="instagram.png" alt="instagarm logo"></a>
+    <a href="https://web.facebook.com/?_rdc=1&_rdr#"><img src="facebook.png" alt="facebook logo"></a>
+    <a href="https://www.instagram.com/"><img src="instagram.png" alt="instagarm logo"></a>
 </section>
 <div id="copy">© Vanini</div>
     </div>
@@ -320,5 +356,6 @@
     </script>
 </body>
 </html>
+
 
 
