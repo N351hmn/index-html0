@@ -265,18 +265,17 @@
               display: flex;
               flex-direction: column;
               z-index: 999;
-              gap: 10px;
+              gap: 8px;
               margin: 0;
             }
              .shop-layout button, 
              .favorites button,
              .delete button {
-              position: relative;
-              top: auto;
-              right: auto;
-              width: 60px;
-              height: 60px;
-              gap: 20px;
+              position: relative !important;
+              top: auto !important;
+              right: auto !important;
+              width: 60px !important;
+              height: 60px !important;
               font-size: 12px;
               display: flex;
               flex-direction: column;
@@ -288,6 +287,7 @@
               background-color: rgb(77, 75, 75);
               border: 2.5px solid black;
               cursor: pointer;
+              padding: 4px;
             }
             .favorites button{
               top: auto;
@@ -302,12 +302,16 @@
               min-width: 25px;
               display: inline-block;
               text-align: center;
+              border-radius: 10px;
+              padding: 2px 4px;
+              magin-top: 2px;
             }
             .shop-layout h2,
             .favorites h2,
             .delete h2 {
               margin: 0;
-              font-size: 20px;
+              font-size: 18px;
+              line-height: 1;
             }
             h1 {
               font-size: 28px;
@@ -611,6 +615,7 @@
     </script>
 </body>
 </html>
+
 
 
 
