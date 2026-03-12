@@ -46,53 +46,43 @@
       .shop-layout button, 
       .favorites button,
       .delete button {
-        position: absolute;
-        top: 10px;
-        right: 50px;
-        font-size: medium;
+        font-size: 24px;
         font-weight: bold;
-        background-color: rgb(77, 75, 75);
-        border: 2.5px solid black;
+        background-color: none;
+        border: none;
         box-shadow: 0 4px 3px 3px gray;
-        margin: auto;
+        margin: 0;
         border-radius: 10px; 
-        height: 80px;
+        height: auto;
         cursor: pointer;
-      }
-      .favorites button{
-        right: 150px;
-      }
-      .delete button{
-        right: 250px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px 10px;
+        transition: transform0.2s;
       }
       .shop-layout button:hover, 
       .favorites button:hover,
       .delete button:hover {
-        background-color: rgb(65, 64, 64);
-        transition: 0.3s;
+        background-color: none;
+        transform: scale(1.1);
       }
       .shop-layout button:active,
       .favorites button:active,
       .delete button:active {
-        background-color: rgb(34, 33, 33);
-        transition: 0.2s;
-      }
-      .products {
-        flex: 3;
-      }
-      .shop-layout h2,
-      .favorites h2,
-      .delete h2 {
-        margin: 5px auto;
-        padding-right: 5px;
-      }
-      .delete h2 {
-        width: 50px;
+         background-color: none;
+        transform: scale(0.95);
       }
       .shop-layout button span  
       .favorites button span,
       .delete button span {
-        min-width: 30px;
+        min-width: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: black;
+        background-color: rgba(253, 242, 86, 0.952);
+        padding: 2px 6px;
+        border-radius: 20px;
         text-align: center;
         display: inline-block;
       }
@@ -260,51 +250,34 @@
             }
             .buttons {
               display: flex;
-              top: 120px;
+              top: auto;
+              bottom: 20px;
               right: 10x;
+              left: auto;
+              background: rgba(255, 255, 255, 0.9);
+              border-radius: 40px;
+              padding: 8px 15px;
+              box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+              backdrop-filter: blur(5px);
               display: flex;
-              flex-direction: column;
-              z-index: 999;
-              gap: 8px;
-              margin: 0;
+              justify-content: center;
             }
              .shop-layout button, 
              .favorites button,
              .delete button {
-              position: relative !important;
-              top: auto !important;
-              right: auto !important;
-              width: 60px !important;
-              height: 60px !important;
-              font-size: 12px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-              borer-radius: 12px;
-              margin: 0;
-              background-color: rgb(77, 75, 75);
-              border: 2.5px solid black;
-              cursor: pointer;
-              padding: 4px;
-            }
-            .favorites button{
-              top: auto;
-            }
-            .delete button {
-               top: auto;
+              font-size: 28px;
+              padding: 5px;
             }
             .shop-layout button span  
             .favorites button span,
             .delete button span {
               font-size: 14px;
               min-width: 25px;
-              display: inline-block;
-              text-align: center;
-              border-radius: 10px;
-              padding: 2px 4px;
-              magin-top: 2px;
+              position: absolute;
+              top: -5px;
+              right: -5px;
+              background-color: rgb(253, 242, 86);
+              border: 1px solid black;
             }
             .shop-layout h2,
             .favorites h2,
@@ -343,19 +316,16 @@
      
     <div class="buttons">
      <div class="shop-layout">
-      <button><h2>🛒</h2>
-      <ul id="cart-items"></ul>
-      <span id="total">$0</span></button>
+      <button>🛒<span id="total">$0</span>
+      </button>
       </div>
      <div class="favorites">
-      <button><h2>♥️</h2>
-      <ul id="package"></ul>
-      <span id="total-fav">0</span></button>
+      <button>♥️<span id="total-fav">0</span>
+      </button>
      </div>
      <div class="delete">
-      <button><h>🗑️</h>
-      <ul id="delete-items"></ul>
-    <span id="total-deleted">0</span></button>
+      <button>🗑️<span id="total-deleted">0</span>
+      </button>
      </div>
     </div>
      
@@ -615,7 +585,6 @@
     </script>
 </body>
 </html>
-
 
 
 
