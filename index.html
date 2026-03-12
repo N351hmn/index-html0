@@ -93,9 +93,10 @@
         display: none;
       }
       .slide {
-        width: 250px;
+        min-width: 250px;
         margin-right: 20px;
         text-align: center;
+        flex-shrink: 0;
       }
       .slide img {
         border: 1px solid black;
@@ -140,28 +141,13 @@
         @media (max-width: 600px) {
             .container{
                 width: 95%;
-                padding: 5px;
-            }
-            .container a {
-                font-size: 18px;
-                padding: 5px 8px;
-            }
-            .variables a {
-                font-size: 18px;
-                padding: 10px;
             }
             .slider {
-                width: 100%;
-                height: auto;
+                width: 90%;
             }
-            .slide {
+            .slide img {
                 width: 200px;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            p {
-                font-size: 16px;
+                height: 200px;
             }
         }
     </style>
@@ -355,6 +341,7 @@
     </script>
 </body>
 </html>
+
 
 
 
