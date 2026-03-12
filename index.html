@@ -260,33 +260,53 @@
             }
             .buttons {
               display: flex;
-              justify-content: center;
-              gap: 8px;
-              margin-top: 60px;
-              flex-wrap: wrap; 
+              top: 120px;
+              right: 10x;
+              display: flex;
+              flex-direction: column;
+              z-index: 999;
+              gap: 10px;
+              margin: 0;
             }
              .shop-layout button, 
              .favorites button,
              .delete button {
-              position: absolute;
-              top: 50;
-              right: 50;
-              width: 70px;
-              height: 70px;
+              position: relative;
+              top: auto;
+              right: auto;
+              width: 60px;
+              height: 6px;
               font-size: 12px;
-              margin: 0 2px; 
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+              borer-radius: 12px;
+              margin: 0;
+              background-color: rgb(77, 75, 75);
+              border: 2.5px solid black;
+              cursor: pointer;
             }
             .favorites button{
-              top: 100;
+              top: auto;
             }
             .delete button {
-               top: 150;
+               top: auto;
             }
             .shop-layout button span  
             .favorites button span,
             .delete button span {
               font-size: 14px;
               min-width: 25px;
+              display: inline-block;
+              text-align: center;
+            }
+            .shop-layout h2,
+            .favorites h2,
+            .delete h2 {
+              margin: 0;
+              font-size: 20px;
             }
             h1 {
               font-size: 28px;
@@ -590,4 +610,5 @@
     </script>
 </body>
 </html>
+
 
