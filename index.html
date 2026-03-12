@@ -25,7 +25,7 @@
         border: 2.5px solid black;
         box-shadow: 0 4px 7px 2px gray;
         text-align: center;
-        transition: top 0.3;
+        transition: top 0.3s;
       }
       .container.hidden-bg {
         background-color: rgba(82, 21, 21, 0);
@@ -60,7 +60,7 @@
         box-sizing: border-box;
         text-align: center;
         box-shadow: 0 4px 7px 2px gray;
-        margin: 3px 10px;
+        margin: 10px;
       }
       .variables a {
         text-decoration: none;
@@ -97,6 +97,9 @@
         margin-right: 20px;
         text-align: center;
         flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .slide img {
         border: 1px solid black;
@@ -105,6 +108,22 @@
         object-fit: cover;
         border-radius: 10px;
         flex-shrink: 0;
+      }
+      .prices {
+        margin-top: 5px;
+        padding: 4px 8px;
+        font-size: 14px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slide img:hover + .prices {
+        opacity: 1;
       }
       .slider button {
         position: absolute;
@@ -205,27 +224,64 @@
     <button class="prev" onclick="slideLeft(this)">&#60;</button>
 
      <div class="slider-track">
-    <div class="slide"><img src="hoody1.jpg" alt="hoodies"></div>
-    <div class="slide"><img src="hoody2.jpg" alt="hoodies"></div>
-    <div class="slide"><img src="hoody3.jpg" alt="hoodies"></div>
-    <div class="slide"><img src="hoody4.jpg" alt="hoodies"></div>
-    <div class="slide"><img src="hoody5.jpg" alt="hoodies"></div>
+    <div class="slide"><img src="hoody1.jpg" alt="hoodies">
+    <p>Green Hoodie with BROOKLYN Word $15 </p></div>
+    <div class="slide"><img src="hoody2.jpg" alt="hoodies">
+    <p>White & Purple Hoodie and BROOKLYN $17 </p></div>
+    <div class="slide"><img src="hoody3.jpg" alt="hoodies">
+    <p>Blue Hoodie $15 </p></div>
+    <div class="slide"><img src="hoody4.jpg" alt="hoodies">
+    <p>Green Hoodie $18 </p></div>
+    <div class="slide"><img src="hoody5.jpg" alt="hoodies">
+    <p>Black Hoodie with a Painting from the behind $20 </p></div>
     </div>
 
     <button class="next" onclick="slideRight(this)">&#62;</button>
     </div>
+    <div class="prices">
+    <button onclick="addToCart('Green Hoodie with BROOKLYN Word', 15)">🛒</button>
+    <br>
+    <button onclick="addToCart('White Hoodie with Purple colour and BROOKLYN Word', 17)">🛒</button>
+    <br>
+    <button onclick="addToCart('Blue Hoodie', 15)">🛒</button>
+    <br>
+    <button onclick="addToCart('Green Hoodie', 18)">🛒</button>
+    <br>
+    <button onclick="addToCart('Black Hoodie with a Painting from the behind', 20)">🛒</button>
+    </div>
     </section>
+
     <section id="full">
       <h2></h2>
       <div class="slider">
       <button class="prev" onclick="slideLeft(this)">&#60;</button>
 
       <div class="slider-track">
-      <div class="slide"><img src="full1.jfif" alt="full"></div>
-      <div class="slide"><img src="full2.jfif" alt="full"></div>
-      <div class="slide"><img src="full3.jfif" alt="full"></div>
-      <div class="slide"><img src="full4.jpg" alt="full"></div>      
-      <div class="slide"><img src="full5.jpg" alt="full"></div>     
+      <div class="slide"><img src="full1.jfif" alt="full">
+      <p>Brown full suit</p>
+    <p>$50</p>
+    <button onclick="addToCart('Brown full suit', 50)">🛒</button>
+      </div>
+      <div class="slide"><img src="full2.jfif" alt="full">
+      <p>Gray full suit with a word</p>
+    <p>$75</p>
+    <button onclick="addToCart('Gray full suit with a word', 75)">🛒</button>
+      </div>
+      <div class="slide"><img src="full3.jfif" alt="full">
+      <p>Blue full suit with a word</p>
+    <p>$75</p>
+    <button onclick="addToCart('Blue full suit with a word', 75)">🛒</button>
+      </div>
+      <div class="slide"><img src="full4.jpg" alt="full">
+      <p>Navy full suit with a moonlight word</p>
+    <p>$80</p>
+    <button onclick="addToCart('Navy full suit with a moonlight word', 80)">🛒</button>
+      </div>      
+      <div class="slide"><img src="full5.jpg" alt="full">
+      <p>Gray full suit with a word</p>
+    <p>$85</p>
+    <button onclick="addToCart('Gray full suit with a word', 85)">🛒</button>
+      </div>     
       </div>
       
       <button class="next" onclick="slideRight(this)">&#62;</button>
@@ -364,14 +420,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
