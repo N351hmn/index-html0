@@ -73,7 +73,7 @@
          background-color: none;
         transform: scale(0.95);
       }
-      .shop-layout button span  
+      .shop-layout button span,  
       .favorites button span,
       .delete button span {
         min-width: 20px;
@@ -120,10 +120,12 @@
       }
       .slider {
         position: relative;
-        width: 500px;
-        height: 290px;
+        width: 1400px;
+        height: 300px;
         margin: auto;
-        overflow: hidden;
+        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
         display: flex;
         align-items: center;
       }
@@ -131,44 +133,42 @@
         display: flex;
         gap: 20px;
         scroll-behavior: smooth;
-        overflow-x: auto;
+        overflow-x: hidden;
       }
       .slider-track::-webkit-scrollbar {
         display: none;
       }
       .slide {
         min-width: 250px;
+        width: auto;
         margin-right: 20px;
         text-align: center;
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        background: transparent;
+        padding: 20px;
+        border-radius: 10px;
       }
       .slide img {
         border: 1px solid black;
         border-radius: 10px;
         width: 250px;
         height: 250px;
-        object-fit: cover;
         border-radius: 10px;
         flex-shrink: 0;
+        margin-bottom: 10px;
       }
-      .prices {
-        margin-top: 5px;
-        padding: 4px 8px;
-        font-size: 14px;
-        border-radius: 6px;
-        border: none;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .slide p {
+        margin: 5px 0;
+        width: 100%;
+        min-height: 40px;
       }
-      .slide img:hover + .prices {
-        opacity: 1;
+      .slide a {
+        text-decoration: none;
+        color:  rgba(219, 206, 26, 0.815);
       }
       .slider button {
         position: absolute;
@@ -193,6 +193,56 @@
         border-radius: 50%;
         box-shadow: 0 4px 8px rgba(0, 7, 5, 0.1); 
         }
+        .sections1, .sections2,
+        .sections3, .sections4,
+        .sections5 {
+        background-color: rgb(4, 1, 10);
+        color: rgba(253, 242, 86, 0.952);
+        border-radius: 10px;
+        border: 2px solid black;
+        text-align: right;
+        margin: 10px;
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+        margin: 15px;
+        overflow-x:scroll;
+        box-sizing: border-box;
+        height: 600px;
+        width: 1450px;
+        overflow-y: hidden;
+      }
+      
+      .sections1 img, .sections2 img,
+      .sections3 img, .sections4 img,
+      .sections5 img {
+        width: 350px;
+        height: 350px;
+        border: 2px solid black;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px 3px rgb(90, 88, 88);
+        left: 50px;
+        position: sticky;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        margin-bottom: 10px;
+      }
+      .sections1 button, .sections2 button,
+      .sections3 button, .sections4 button,
+      .sections5 button {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: none;
+        font-size: 24px;
+        padding: 5px 10px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1000;
+        margin: auto;
+      }
         #copy {
        font-family: pacifico, dancing script, great vibes, 'allura', cursive, sans sarif;
        font-size: 18px;
@@ -348,31 +398,28 @@
     <div class="slider">
     <button class="prev" onclick="slideLeft(this)">&#60;</button>
 
+     <nav>
      <div class="slider-track">
-    <div class="slide"><img src="hoody1.jpg" alt="hoodies">
-    <p>Green Hoodie with BROOKLYN Word $15 </p></div>
-    <div class="slide"><img src="hoody2.jpg" alt="hoodies">
-    <p>White & Purple Hoodie and BROOKLYN $17 </p></div>
-    <div class="slide"><img src="hoody3.jpg" alt="hoodies">
-    <p>Blue Hoodie $15 </p></div>
-    <div class="slide"><img src="hoody4.jpg" alt="hoodies">
-    <p>Green Hoodie $18 </p></div>
-    <div class="slide"><img src="hoody5.jpg" alt="hoodies">
-    <p>Black Hoodie with a Painting from the behind $20 </p></div>
+    <div class="slide"><a href="#hoody1"><img src="hoody1.jpg" alt="hoodies" onclick="showProduct('.sections1','hoody1', event); return false;">
+    <p>Green Hoodie with BROOKLYN Word $15 </p></a>
     </div>
+    <div class="slide"><a href="#hoody2"><img src="hoody2.jpg" alt="hoodies" onclick="showProduct('.sections1','hoody2', event); return false;">
+    <p>White & Purple Hoodie and BROOKLYN $17 </p></a>  
+  </div>
+    <div class="slide"><a href="#hoody3"><img src="hoody3.jpg" alt="hoodies" onclick="showProduct('.sections1','hoody3', event); return false;">
+    <p>Blue Hoodie $15 </p></a>  
+  </div>
+    <div class="slide"><a href="#hoody4"><img src="hoody4.jpg" alt="hoodies" onclick="showProduct('.sections1','hoody4', event); return false;">
+    <p>Green Hoodie $18 </p></a>  
+  </div>
+    <div class="slide"><a href="#hoody5"><img src="hoody5.jpg" alt="hoodies" onclick="showProduct('.sections1','hoody5', event); return false;">
+    <p>Black Hoodie with a Painting from the behind $20 </p></a>  
+  </div>
+
+    </div>
+    </nav>
 
     <button class="next" onclick="slideRight(this)">&#62;</button>
-    </div>
-    <div class="prices">
-    <button onclick="addToCart('Green Hoodie with BROOKLYN Word', 15)">🛒</button>
-    <br>
-    <button onclick="addToCart('White Hoodie with Purple colour and BROOKLYN Word', 17)">🛒</button>
-    <br>
-    <button onclick="addToCart('Blue Hoodie', 15)">🛒</button>
-    <br>
-    <button onclick="addToCart('Green Hoodie', 18)">🛒</button>
-    <br>
-    <button onclick="addToCart('Black Hoodie with a Painting from the behind', 20)">🛒</button>
     </div>
     </section>
 
@@ -381,37 +428,27 @@
       <div class="slider">
       <button class="prev" onclick="slideLeft(this)">&#60;</button>
 
+      <nav>
       <div class="slider-track">
-      <div class="slide"><img src="full1.jfif" alt="full">
-      <p>Brown full suit $50 </p>
+      <div class="slide"><a href="#full1"><img src="full1.jfif" alt="full" onclick="showProduct('.sections2','full1', event); hideHoodies(); return false;">
+      <p>Brown full suit $50 </p></a> 
+    </div>
+      <div class="slide"><a href="#full2"><img src="full2.jfif" alt="full" onclick="showProduct('.sections2','full2', event); hideHoodies(); return false;">
+      <p>Gray full suit with a word $75 </p></a> 
+    </div>
+      <div class="slide"><a href="#full3"><img src="full3.jfif" alt="full" onclick="showProduct('.sections2','full3', event); hideHoodies(); return false;">
+      <p>Blue full suit with a word $75 </p></a> 
+    </div>
+      <div class="slide"><a href="#full4"><img src="full4.jpg" alt="full" onclick="showProduct('.sections2','full4', event); hideHoodies(); return false;">
+      <p>Navy full suit with a moonlight word $80 </p></a> 
+    </div>      
+      <div class="slide"><a href="#full5"><img src="full5.jpg" alt="full" onclick="showProduct('.sections2','full5', event); hideHoodies(); return false;">
+      <p>Gray full suit with a word $85 </p></a> 
+    </div>     
       </div>
-      <div class="slide"><img src="full2.jfif" alt="full">
-      <p>Gray full suit with a word $75 </p>
-      </div>
-      <div class="slide"><img src="full3.jfif" alt="full">
-      <p>Blue full suit with a word $75 </p>
-      </div>
-      <div class="slide"><img src="full4.jpg" alt="full">
-      <p>Navy full suit with a moonlight word $80 </p>
-      </div>      
-      <div class="slide"><img src="full5.jpg" alt="full">
-      <p>Gray full suit with a word $85 </p>
-      </div>     
-      </div>
+      </nav>
       
       <button class="next" onclick="slideRight(this)">&#62;</button>
-      </div>
-
-        <div class="prices">
-    <button onclick="addToCart('Brown full suit', 50)">🛒</button>
-    <br>
-    <button onclick="addToCart('Gray full suit with a word', 75)">🛒</button>
-    <br>
-    <button onclick="addToCart('Blue full suit with a word', 75)">🛒</button>
-    <br>
-    <button onclick="addToCart('Navy full suit with a moonlight word', 80)">🛒</button>
-    <br>
-    <button onclick="addToCart('Gray full suit with a word', 85)">🛒</button>
     </div>
     </section>
 
@@ -419,35 +456,28 @@
       <h2></h2>
       <div class="slider">
       <button class="prev" onclick="slideLeft(this)">&#60;</button>
-
+      <nav>
       <div class="slider-track">
-      <div class="slide"><img src="couples1.jpg" alt="couples">
-      <p>2 Green Hoodies $175 </p></div>
-      <div class="slide"><img src="couples2.jfif" alt="couples">
-      <p>2 Green & Gray Hoodies $160 </p></div>
-      <div class="slide"><img src="couples3.jfif" alt="couples">
-      <p>2 Beige & Darkgreen Hoodies $185 </p></div>
-      <div class="slide"><img src="couples4.jpg" alt="couples">
-      <p>2 White & Green Hoodies $187 </p></div>      
-      <div class="slide"><img src="couples5.webp" alt="couples">
-      <p>2 Black & Purple with Draw in Back $218 </p></div>
+      <div class="slide"><a href="#couples1"><img src="couples1.jpg" alt="couples" onclick="showProduct('.sections3','couples1.jpg', event); return false;">
+      <p>2 Green Hoodies $175 </p></a>
+    </div>
+      <div class="slide"><a href="#couples2"><img src="couples2.jfif" alt="couples" onclick="showProduct('.sections3','couples2.jfif', event); return false;">
+      <p>2 Green & Gray Hoodies $160 </p></a>
+    </div>
+      <div class="slide"><a href="#couples3"><img src="couples3.jfif" alt="couples" onclick="showProduct('.sections3','couples3.jfif', event); return false;">
+      <p>2 Beige & Darkgreen Hoodies $185 </p></a>
+    </div>
+      <div class="slide"><a href="#couples4"><img src="couples4.jpg" alt="couples" onclick="showProduct('.sections3','couples4.jpg', event); return false;">
+      <p>2 White & Green Hoodies $187 </p></a>
+    </div>      
+      <div class="slide"><a href="#couples5"><img src="couples5.webp" alt="couples" onclick="showProduct('.sections3','couples5.webp', event); return false;">
+      <p>2 Black & Purple with Draw in Back $218 </p></a>
+    </div>
       </div>
+      </nav>
 
       <button class="next" onclick="slideRight(this)">&#62;</button>
       </div>
-
-      <div class="prices">
-    <button onclick="addToCart('2 Green Hoodies', 175)">🛒</button>
-    <br>
-    <button onclick="addToCart('2 Green & Gray Hoodies', 160)">🛒</button>
-    <br>
-    <button onclick="addToCart('2 Beige & Darkgreen Hoodies', 185)">🛒</button>
-    <br>
-    <button onclick="addToCart('2 White & Green Hoodies', 187)">🛒</button>
-    <br>
-    <button onclick="addToCart('2 Black & Purple with Draw in Back', 218)">🛒</button>
-    </div>
-
     </section>
 
      <section id="men">
@@ -455,34 +485,28 @@
       <div class="slider">
        <button class="prev" onclick="slideLeft(this)">&#60;</button>
 
+       <nav>
        <div class="slider-track">
-      <div class="slide"><img src="men1.jfif" alt="men">
-      <p>Full White with Golden lines suit $182 </p></div>
-      <div class="slide"><img src="men2.jpg" alt="men">
-      <p>Full Black suit $112 </p></div>
-      <div class="slide"><img src="men2.webp" alt="men">
-      <p>Dark Green Hoodies $158 </p></div>
-      <div class="slide"><img src="men4.jpg" alt="men">
-      <p>Black Hoodie with Drawings $190</p></div>
-      <div class="slide"><img src="men5.jpg" alt="men">
-      <p>Dark Green Sweatshirt $118 </p></div>
+      <div class="slide"><a href="#men1"><img src="men1.jfif" alt="men" onclick="showProduct('.sections4','men1.jfif', event); return false;">
+      <p>Full White with Golden lines suit $182 </p></a>  
+    </div>
+      <div class="slide"><a href="#men2"><img src="men2.jpg" alt="men" onclick="showProduct('.sections4','men2.jpg', event); return false;">
+      <p>Full Black suit $112 </p></a>  
+    </div>
+      <div class="slide"><a href="#men2"><img src="men2.webp" alt="men" onclick="showProduct('.sections4','men2.jpg', event); return false;">
+      <p>Dark Green Hoodies $158 </p></a>  
+    </div>
+      <div class="slide"><a href="#men4"><img src="men4.jpg" alt="men"onclick="showProduct('.sections4','men2.jpg', event); return false;">
+      <p>Black Hoodie with Drawings $190</p></a>  
+    </div>
+      <div class="slide"><a href="#men5"><img src="men5.jpg" alt="men" onclick="showProduct('.sections4','men2.jpg', event); return false;">
+      <p>Dark Green Sweatshirt $118 </p></a>  
+    </div>
       </div>
+      </nav>
 
       <button class="next" onclick="slideRight(this)">&#62;</button>
       </div>
-
-      <div class="prices">
-    <button onclick="addToCart('Full White with Golden lines suit', 182)">🛒</button>
-    <br>
-    <button onclick="addToCart('Full Black suit', 112)">🛒</button>
-    <br>
-    <button onclick="addToCart('Dark Green Hoodies', 158)">🛒</button>
-    <br>
-    <button onclick="addToCart('Black Hoodie with Drawings', 190)">🛒</button>
-    <br>
-    <button onclick="addToCart('Dark Green Sweatshirt', 118)">🛒</button>
-    </div>
-
     </section>
 </section>
 
@@ -492,14 +516,265 @@
 </section>
 <section id="contact-us">
   <h2>Contact us</h2>
-    <p>You Can Contact Us Through: </p>
+    <p>You Can Contact with Us Through: </p>
     <a href="https://web.facebook.com/?_rdc=1&_rdr#"><img src="facebook.png" alt="facebook logo"></a>
     <a href="https://www.instagram.com/"><img src="instagram.png" alt="instagarm logo"></a>
 </section>
-<div id="copy">© Vanini</div>
+
+  <section class="sections1">
+    <div id="hoody1">
+      <h2>Green Hoodie with BROOKLYN Word $15</h2>
+       <img src="hoody1.jpg" alt="hoodies">
+       <button onclick="addToCart('Green Hoodie with BROOKLYN Word', 15)">🛒</button>
+       <button onclick="addToFavorite('Green Hoodie with BROOKLYN Word', 15)">♥️</button>
+       <button onclick="deletedItem('Green Hoodie with BROOKLYN Word', 15)">🗑️</button>
+      </div>
+    <div id="hoody2">
+      <h2>White & Purple Hoodie and BROOKLYN $17 </h2>
+      <img src="hoody2.jpg" alt="hoodies">
+       <button onclick="addToCart('White & Purple Hoodie and BROOKLYN', 17)">🛒</button>
+       <button onclick="addToFavorite('White & Purple Hoodie and BROOKLYN', 17)">♥️</button>
+       <button onclick="deletedItem('White & Purple Hoodie and BROOKLYN', 17)">🗑️</button>
     </div>
+    <div id="hoody3">
+      <h2>Blue Hoodie $15 </h2>
+      <img src="hoody3.jpg" alt="hoodies">
+       <button onclick="addToCart('Blue Hoodie', 15)">🛒</button>
+       <button onclick="addToFavorite('Blue Hoodie', 15)">♥️</button>
+       <button onclick="deletedItem('Blue Hoodie', 15)">🗑️</button>
+    </div>
+    <div id="hoody4">
+      <h2>Green Hoodie $18 </h2>
+      <img src="hoody4.jpg" alt="hoodies">
+       <button onclick="addToCart('Green Hoodie', 18)">🛒</button>
+       <button onclick="addToFavorite('Green Hoodie', 18)">♥️</button>
+       <button onclick="deletedItem('Green Hoodie', 18)">🗑️</button>
+    </div>
+    <div id="hoody5">
+      <h2>Black Hoodie with a Painting from the behind $20 </h2>
+      <img src="hoody5.jpg" alt="hoodies">
+       <button onclick="addToCart('Black Hoodie with a Painting from the behind', 20)">🛒</button>
+       <button onclick="addToFavorite('Black Hoodie with a Painting from the behind', 20)">♥️</button>
+       <button onclick="deletedItem('Black Hoodie with a Painting from the behind', 20)">🗑️</button>
+    </div>
+    </section>
+  <section class="sections2">
+      <div id="full1">
+        <h2>Brown full suit $50 </h2>
+      <img src="full1.jfif" alt="full">
+       <button onclick="addToCart('Brown full suit', 50)">🛒</button>
+       <button onclick="addToFavorite('Brown full suit', 50)">♥️</button>
+       <button onclick="deletedItem('Brown full suit', 50)">🗑️</button>
+    </div>
+      <div id="full2">
+        <h2>Gray full suit with a word $75 </h2>
+      <img src="full2.jfif" alt="full">
+       <button onclick="addToCart('Gray full suit with a word', 75)">🛒</button>
+       <button onclick="addToFavorite('Gray full suit with a word', 75)">♥️</button>
+       <button onclick="deletedItem('Gray full suit with a word', 75)">🗑️</button>
+    </div>
+      <div id="full3">
+        <h2>Blue full suit with a word $75 </h2>
+      <img src="full3.jfif" alt="full">
+       <button onclick="addToCart('Blue full suit with a word', 75)">🛒</button>
+       <button onclick="addToFavorite('Blue full suit with a word', 75)">♥️</button>
+       <button onclick="deletedItem('Blue full suit with a word', 75)">🗑️</button>
+    </div>
+      <div id="full4">
+        <h2>Navy full suit with a moonlight word $80 </h2>
+      <img src="full4.jpg" alt="full">
+       <button onclick="addToCart('Navy full suit with a moonlight word', 80)">🛒</button>
+       <button onclick="addToFavorite('Navy full suit with a moonlight word', 80)">♥️</button>
+       <button onclick="deletedItem('Navy full suit with a moonlight word', 80)">🗑️</button>
+    </div>
+      <div id="full5">
+        <h2>Gray full suit with a word $85 </h2>
+      <img src="full5.jpg" alt="full">
+       <button onclick="addToCart('Gray full suit with a word', 85)">🛒</button>
+       <button onclick="addToFavorite('Gray full suit with a word', 85)">♥️</button>
+       <button onclick="deletedItem('Gray full suit with a word', 85)">🗑️</button>
+    </div>
+   </section>
+   <section class="sections3">
+    <div id="couples1">
+      <img src="couples1.jpg" alt="couples">
+      <p>2 Green Hoodies $175 </p>
+       <button onclick="addToCart('2 Green Hoodies', 175)">🛒</button>
+       <button onclick="addToFavorite('2 Green Hoodies', 175)">♥️</button>
+       <button onclick="deletedItem('2 Green Hoodies', 175)">🗑️</button>
+    </div>
+    <div id="couples2">
+      <img src="couples2.jfif" alt="couples">
+      <p>2 Green & Gray Hoodies $160 </p>
+       <button onclick="addToCart('2 Green & Gray Hoodies', 160)">🛒</button>
+       <button onclick="addToFavorite('2 Green & Gray Hoodies', 160)">♥️</button>
+       <button onclick="deletedItem('2 Green & Gray Hoodies', 160)">🗑️</button>
+    </div>
+    <div id="couples3">
+      <img src="couples3.jfif" alt="couples">
+      <p>2 Beige & Darkgreen Hoodies $185 </p>
+       <button onclick="addToCart('2 Beige & Darkgreen Hoodies', 185)">🛒</button>
+       <button onclick="addToFavorite('2 Beige & Darkgreen Hoodies', 185)">♥️</button>
+       <button onclick="deletedItem('2 Beige & Darkgreen Hoodies', 185)">🗑️</button>
+    </div>
+    <div id="couples4">
+      <img src="couples4.jpg" alt="couples">
+      <p>2 White & Green Hoodies $187 </p>
+       <button onclick="addToCart('2 White & Green Hoodies', 187)">🛒</button>
+       <button onclick="addToFavorite('2 White & Green Hoodies', 187)">♥️</button>
+       <button onclick="deletedItem('2 White & Green Hoodies', 187)">🗑️</button>
+    </div>
+    <div id="couples5">
+      <img src="couples5.webp" alt="couples">
+      <p>2 Black & Purple with Draw in Back $218 </p>
+       <button onclick="addToCart('2 Black & Purple with Draw in Back', 218)">🛒</button>
+       <button onclick="addToFavorite('2 Black & Purple with Draw in Back', 218)">♥️</button>
+       <button onclick="deletedItem('2 Black & Purple with Draw in Back', 218)">🗑️</button>
+    </div>
+    </section>
+   <section class="sections4">
+    <div id="men1">
+      <img src="men1.jfif" alt="men">
+      <p>Full White with Golden lines suit $182 </p>
+       <button onclick="addToCart('Full White with Golden lines suit', 182)">🛒</button>
+       <button onclick="addToFavorite('Full White with Golden lines suit', 182)">♥️</button>
+       <button onclick="deletedItem('Full White with Golden lines suit', 182)">🗑️</button>
+    </div>
+    <div id="men2">
+      <img src="men2.jpg" alt="men">
+      <p>Full Black suit $112 </p>
+       <button onclick="addToCart('Full Black suit', 112)">🛒</button>
+       <button onclick="addToFavorite('Full Black suit', 112)">♥️</button>
+       <button onclick="deletedItem('Full Black suit', 112)">🗑️</button>
+    </div>
+    <div id="men3">
+      <img src="men2.webp" alt="men">
+      <p>Dark Green Hoodies $158 </p>
+       <button onclick="addToCart('Dark Green Hoodies', 158)">🛒</button>
+       <button onclick="addToFavorite('Dark Green Hoodies', 158)">♥️</button>
+       <button onclick="deletedItem('Dark Green Hoodies', 158)">🗑️</button>
+    </div>
+    <div id="men4">
+      <img src="men4.jpg" alt="men">
+      <p>Black Hoodie with Drawings $190</p>
+       <button onclick="addToCart('Black Hoodie with Drawings', 190)">🛒</button>
+       <button onclick="addToFavorite('Black Hoodie with Drawings', 190)">♥️</button>
+       <button onclick="deletedItem('Black Hoodie with Drawings', 190)">🗑️</button>
+    </div>
+    <div id="men5">
+      <img src="men5.jpg" alt="men">
+      <p>Dark Green Sweatshirt $118 </p>
+       <button onclick="addToCart('Dark Green Sweatshirt', 118)">🛒</button>
+       <button onclick="addToFavorite('Dark Green Sweatshirt', 118)">♥️</button>
+       <button onclick="deletedItem('Dark Green Sweatshirt', 118)">🗑️</button>
+    </div>
+    </section>
+
+    <div id="notification"></div>
+
+
+<div id="copy">© Vanini</div>
+
+<section id="product-details" 
+     style="display: none; 
+      padding: 20px; 
+      background: gray; 
+      color: black; 
+      border-radius: 10px; 
+      margin: 20px auto; 
+      max-width: 500px; ">
+  <h2 id="detail-title"></h2>
+  <img id="detail-image" src="" alt="" style="width: 100%; max-width: 300px; border-radius: 10px;">
+  <p id="detaol-description"></p>
+  <p><strong id="detail-price"></strong></p>
+  <button onclick="addToCartFromDetail()">🛒 Add to Cart</button>
+  <button onclick="addToFavoritesFromDetail()">♥️ Add to Favorites</button>
+   <button onclick="closeDetails()">Close</button>
+</section>
+    </div>
+
     <script>
       
+      let cartTotal = 0;
+      let favTotal= 0;
+      let deletedTotal = 0;
+
+      let cartItems = [];
+      let favoriteItems = [];
+
+      function showMsg(msg) {
+        const box = 
+        document.getElementById("notification");
+        if (box) {
+        box.innerText = msg;
+        box.style.display = "block";
+        setTimeout(() => 
+          box.style.display = 
+          "none", 2000);
+      } else { 
+          alert(msg);
+
+      }
+    }
+
+       function addToCart(name, price) {
+        cartItems.push({ name, price});
+        cartTotal = cartItems.reduce((sum, item) => sum
+       + item.price, 0);
+        document.getElementById("total").innerText = "$" 
+        + cartTotal;
+        showMsg(name + " aded to cart!");
+        
+      }
+
+      function addToFavorite(name, price) {
+
+        if(!favoriteItems.some(item =>item.name ===
+          name)) {
+          favoriteItems.push({name, price});
+          favTotal = favoriteItems.length;
+          document.getElementById("total-fav").innerText
+          = favTotal;
+          showMsg(`${name} added to favorites!`);
+          } else {
+            showMsg(`${name} is already in favorites!`);
+          }
+      }
+
+      function removeFromFavorite(name) {
+        functionItems = favoriteItems.filter(item =>
+          item.name !== name);
+          favTotal = favoriteItems.length;
+          document.getElementById("total-fav").innerText = 
+          favTotal;
+          showMsg(`${name} removed from favorites!`)
+      }
+
+      function deletedItem(name) {
+       cartItems = cartItems.filter(item => item.name 
+       !== name);
+        favoriteItems = favoriteItems.filter(item =>
+          item.name !== name);
+
+        cartTotal = cartItems.reduce((sum, item) => sum
+      + item.price, 0);
+        favTotal = favoriteItems.length;
+
+        document.getElementById("total").innerText ="$" 
+        + cartTotal;
+        document.getElementById("total-fav").innerText = 
+        favTotal;
+
+          deletedTotal += 1;
+
+        document.getElementById("total-deleted").innerText
+          = deletedTotal;
+
+          showMsg(`${name} deleted!`)
+              }
+
+      
+
       let lastScroll = 0
       const nav = document.querySelector(".container")
 
@@ -516,6 +791,7 @@
 
         lastScroll = currentScroll
       })
+
       
       const mainSections = ["menu", "about-us", "contact-us"]
 
@@ -527,6 +803,12 @@
 
        mainSections.forEach(section => {
          document.getElementById(section).style.display = "none";
+       });
+
+       document.querySelectorAll(
+        ".sections1, .sections2, .sections3, .sections4, .sections5"
+       ).forEach(sec => {
+        sec.style.display = "none";
        });
 
        document.getElementById(id).style.display = "block";
@@ -582,9 +864,48 @@
         })
 
           }, 3000)
+
+
+          function showProduct(sectionClass, id, event) {
+            if(event) event.preventDefault();
+
+            document.querySelectorAll(
+
+            ".sections1, .sections2, .sections3, .sections4, .sections5"
+            
+               ).forEach(sec => {
+                  sec.style.display = "none";
+               });
+
+            const section = 
+            document.querySelector(sectionClass);
+            section.style.display = "flex";
+
+            section.querySelectorAll("div").forEach(item => 
+      {
+                item.style.display = "none";
+             });
+
+            document.getElementById(id).style.display = 
+       "block";
+          }
+
+
+function fakeSignUp() {
+  let name = document.getElementById('signup-name').value;
+  let email = document.getElementById('signup-email').value;
+  let pass = document.getElementById('signup-password').value;
+
+  if (name && email && pass) {
+    document.getElementById('signup-message').innerText = 'Account created successfully!';
+  } else {
+    alert('Please fill all fields');
+  }
+}
+
+
     </script>
 </body>
 </html>
-
 
 
