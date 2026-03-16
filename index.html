@@ -898,23 +898,27 @@
           track.scrollLeft -= 300
         }
 
-        let direction = 1
-
+        
+        if(sliers.length > 0) {
         setInterval(() => {
 
           sliders.forEach(track => {
-
+         setTimeout(() => {
           const maxScroll = track.scrollWidth - track.clientWidth 
 
+            if(maxScroll > 0) {
             const randomPosition = Math.random() * maxScroll
           
           track.scrollTo({
             left: randomPosition,
             behavior: "smooth"
-          })
-        })
+          });
+            }
+         }, 100);
+        });
 
-          }, 3000)
+          }, 3000);
+        }
 
 
           function showProduct(sectionClass, id, event) {
