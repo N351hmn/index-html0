@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -746,15 +747,10 @@
     </div>
 
     <script>
-      
-      let cartTotal = 0;
-      let favTotal= 0;
-      let deletedTotal = 0;
 
-      let cartItems = [];
-      let favoriteItems = [];
-
-      function showMsg(msg) {
+      document.addEventListener("DOMContentLoaded", ()
+    => {
+       function showMsg(msg) {
         const box = 
         document.getElementById("notification");
         if (box) {
@@ -768,6 +764,13 @@
 
       }
     }
+
+     let cartTotal = 0;
+      let favTotal= 0;
+      let deletedTotal = 0;
+
+      let cartItems = [];
+      let favoriteItems = [];
 
        function addToCart(name, price) {
         cartItems.push({ name, price});
@@ -792,7 +795,7 @@
             showMsg(`${name} is already in favorites!`);
           }
       }
-
+      
       function removeFromFavorite(name) {
         functionItems = favoriteItems.filter(item =>
           item.name !== name);
@@ -825,9 +828,7 @@
           showMsg(`${name} deleted!`)
               }
 
-      
-
-      let lastScroll = 0
+       let lastScroll = 0
       const nav = document.querySelector(".container")
 
       window.addEventListener("scroll", () => {
@@ -844,7 +845,6 @@
         lastScroll = currentScroll
       })
 
-      
       const mainSections = ["menu", "about-us", "contact-us"]
 
       const menuSubsections = ["hoodies", "full", "couples", "men"]
@@ -857,8 +857,10 @@
          document.getElementById(section).style.display = "none";
        });
 
-       document.querySelectorAll(
+        document.querySelectorAll(
+
         ".sections1, .sections2, .sections3, .sections4, .sections5"
+
        ).forEach(sec => {
         sec.style.display = "none";
        });
@@ -874,7 +876,8 @@
          }
       }
 
-      function showMenuSubsection(id, event) {
+      window.showMenuSubsection = function(id, event) 
+      {
         event.preventDefault();
 
         menuSubsections.forEach(sub => {
@@ -884,50 +887,7 @@
 
       }
 
-        const sliders =
-         document.querySelectorAll(".slider-track");
-
-        function slideRight(btn) {
-          const track = 
-          btn.parentElement.querySelector(".slider-track");
-          track.scrollLeft += 300
-        }
-
-        function slideLeft(btn) {
-          const track = 
-          btn.parentElement.querySelector(".slider-track");
-          track.scrollLeft -= 300
-        }
-
-        window.addEventListener("load", () => {
-          
-        setInterval(() => {
-
-          sliders.forEach(track => {
-
-          const maxScroll = track.scrollWidth - 
-    track.clientWidth 
-
-          if(maxScroll > 0) {
-            const randomPosition = Math.random() * 
-    maxScroll
-          
-          track.scrollTo({
-            left: randomPosition,
-            behavior: "smooth"
-          });
-
-          }
-        });
-
-          }, 3000)
-          
-        });
-
-        });
-
-
-          function showProduct(sectionClass, id, event) {
+      window.showProduct = function(sectionClass, id, event) {
             if(event) event.preventDefault();
 
             document.querySelectorAll(
@@ -950,6 +910,47 @@
             document.getElementById(id).style.display = 
        "block";
           }
+
+          const sliders =
+         document.querySelectorAll(".slider-track");
+
+        function slideRight(btn) {
+          const track = 
+          btn.parentElement.querySelector(".slider-track");
+          track.scrollLeft += 300
+        }
+
+        function slideLeft(btn) {
+          const track = 
+          btn.parentElement.querySelector(".slider-track");
+          track.scrollLeft -= 300
+        }
+
+        window.addEventListener("load", () => {
+
+        setInterval(() => {
+
+          sliders.forEach(track => {
+
+          const maxScroll = track.scrollWidth - 
+    track.clientWidth 
+
+          if(maxScroll > 0) {
+            const randomPosition = Math.random() * 
+    maxScroll
+          
+          track.scrollTo({
+            left: randomPosition,
+            behavior: "smooth"
+          });
+
+          }
+        });
+
+          }, 3000)
+          
+        });
+    });
 
 
 function fakeSignUp() {
