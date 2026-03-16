@@ -379,8 +379,7 @@
               border-radius: 5px;
               padding: 5px 10px;
               position: relative;
-              margin-top: 20px;
-              margin-bottom: 20px;
+              margin: 20px;
             }
             .sections1 button:hover, .sections2 button:hover,
             .sections3 button:hover, .sections4 button:hover,
@@ -910,10 +909,8 @@
 
           const maxScroll = track.scrollWidth - track.clientWidth 
 
-          if(maxScroll > 50) {
+          if(maxScroll > 0) {
             const randomPosition = Math.random() * maxScroll
-
-          }
           
           track.scrollTo({
             left: randomPosition,
