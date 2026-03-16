@@ -885,8 +885,10 @@
 
       }
 
+        window.addEventListener("DOMContentLoaded", () => {
+
         const sliders =
-         document.querySelectorAll(".slider-track")
+         document.querySelectorAll(".slider-track");
 
         function slideRight(btn) {
           const track = 
@@ -917,9 +919,13 @@
             left: randomPosition,
             behavior: "smooth"
           })
+
+          }
         })
 
           }, 3000)
+
+        });
 
 
           function showProduct(sectionClass, id, event) {
