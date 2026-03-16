@@ -230,7 +230,7 @@
         flex-wrap: wrap;
         box-sizing: border-box;
         flex-shrink: 0;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
       .sections1 button, .sections2 button,
       .sections3 button, .sections4 button,
@@ -884,24 +884,20 @@
 
       }
 
-        window.addEventListener("DOMContentLoaded", () => {
-
         const sliders =
          document.querySelectorAll(".slider-track");
 
         function slideRight(btn) {
           const track = 
-          btn.parentElement.querySelector(".slider-track")
+          btn.parentElement.querySelector(".slider-track");
           track.scrollLeft += 300
         }
 
         function slideLeft(btn) {
           const track = 
-          btn.parentElement.querySelector(".slider-track")
+          btn.parentElement.querySelector(".slider-track");
           track.scrollLeft -= 300
         }
-
-        let direction = 1
 
         setInterval(() => {
 
@@ -910,7 +906,8 @@
           const maxScroll = track.scrollWidth - track.clientWidth 
 
           if(maxScroll > 0) {
-            const randomPosition = Math.random() * maxScroll
+            const randomPosition = Math.random() * 
+    maxScroll
           
           track.scrollTo({
             left: randomPosition,
