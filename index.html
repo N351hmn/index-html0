@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,7 +133,7 @@
         display: flex;
         gap: 20px;
         scroll-behavior: smooth;
-        overflow-x: auto;
+        overflow-x: hidden;
       }
       .slider-track::-webkit-scrollbar {
         display: none;
@@ -231,7 +230,7 @@
         flex-wrap: wrap;
         box-sizing: border-box;
         flex-shrink: 0;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
       }
       .sections1 button, .sections2 button,
       .sections3 button, .sections4 button,
@@ -369,7 +368,6 @@
             .sections3 img, .sections4 img,
             .sections5 img {
               width: 80vw;
-              height: 50vh;
             }
             .sections1 button, .sections2 button,
             .sections3 button, .sections4 button,
@@ -380,14 +378,14 @@
               border-radius: 5px;
               padding: 5px 10px;
               position: relative;
-              margin: 20px;
+              margin-top: 20px;
             }
             .sections1 button:hover, .sections2 button:hover,
             .sections3 button:hover, .sections4 button:hover,
             .sections5 button:hover {
               background-color: rgba(204, 200, 200, 0.7);
               box-shadow: 0 1px 2px 2px whitesmoke;
-            }
+      }
            .sections1 button:active, .sections2 button:active,
            .sections3 button:active, .sections4 button:active,
            .sections5 button:active {
@@ -395,7 +393,7 @@
               box-shadow: 0 1px 2px 2px whitesmoke;
               border: 2px solid black;
               border-radius: 5px;
-            }
+      }
             #copy {
               font-size: 14px;
               text-align: center;
@@ -747,10 +745,15 @@
     </div>
 
     <script>
+      
+      let cartTotal = 0;
+      let favTotal= 0;
+      let deletedTotal = 0;
 
-      document.addEventListener("DOMContentLoaded", ()
-    => {
-       function showMsg(msg) {
+      let cartItems = [];
+      let favoriteItems = [];
+
+      function showMsg(msg) {
         const box = 
         document.getElementById("notification");
         if (box) {
@@ -764,13 +767,6 @@
 
       }
     }
-
-     let cartTotal = 0;
-      let favTotal= 0;
-      let deletedTotal = 0;
-
-      let cartItems = [];
-      let favoriteItems = [];
 
        function addToCart(name, price) {
         cartItems.push({ name, price});
@@ -795,7 +791,7 @@
             showMsg(`${name} is already in favorites!`);
           }
       }
-      
+
       function removeFromFavorite(name) {
         functionItems = favoriteItems.filter(item =>
           item.name !== name);
@@ -828,7 +824,9 @@
           showMsg(`${name} deleted!`)
               }
 
-       let lastScroll = 0
+      
+
+      let lastScroll = 0
       const nav = document.querySelector(".container")
 
       window.addEventListener("scroll", () => {
@@ -845,6 +843,7 @@
         lastScroll = currentScroll
       })
 
+      
       const mainSections = ["menu", "about-us", "contact-us"]
 
       const menuSubsections = ["hoodies", "full", "couples", "men"]
@@ -857,10 +856,8 @@
          document.getElementById(section).style.display = "none";
        });
 
-        document.querySelectorAll(
-
+       document.querySelectorAll(
         ".sections1, .sections2, .sections3, .sections4, .sections5"
-
        ).forEach(sec => {
         sec.style.display = "none";
        });
@@ -876,8 +873,7 @@
          }
       }
 
-      window.showMenuSubsection = function(id, event) 
-      {
+      function showMenuSubsection(id, event) {
         event.preventDefault();
 
         menuSubsections.forEach(sub => {
@@ -887,7 +883,44 @@
 
       }
 
-      window.showProduct = function(sectionClass, id, event) {
+        const sliders =
+         document.querySelectorAll(".slider-track")
+
+        function slideRight(btn) {
+          const track = 
+          btn.parentElement.querySelector(".slider-track")
+          track.scrollLeft += 300
+        }
+
+        function slideLeft(btn) {
+          const track = 
+          btn.parentElement.querySelector(".slider-track")
+          track.scrollLeft -= 300
+        }
+
+        let direction = 1
+
+        setInterval(() => {
+
+          sliders.forEach(track => {
+
+          const maxScroll = track.scrollWidth - track.clientWidth 
+
+          if(maxScroll > 50) {
+            const randomPosition = Math.random() * maxScroll
+
+          }
+          
+          track.scrollTo({
+            left: randomPosition,
+            behavior: "smooth"
+          })
+        })
+
+          }, 3000)
+
+
+          function showProduct(sectionClass, id, event) {
             if(event) event.preventDefault();
 
             document.querySelectorAll(
@@ -910,47 +943,6 @@
             document.getElementById(id).style.display = 
        "block";
           }
-
-          const sliders =
-         document.querySelectorAll(".slider-track");
-
-        function slideRight(btn) {
-          const track = 
-          btn.parentElement.querySelector(".slider-track");
-          track.scrollLeft += 300
-        }
-
-        function slideLeft(btn) {
-          const track = 
-          btn.parentElement.querySelector(".slider-track");
-          track.scrollLeft -= 300
-        }
-
-        window.addEventListener("load", () => {
-
-        setInterval(() => {
-
-          sliders.forEach(track => {
-
-          const maxScroll = track.scrollWidth - 
-    track.clientWidth 
-
-          if(maxScroll > 0) {
-            const randomPosition = Math.random() * 
-    maxScroll
-          
-          track.scrollTo({
-            left: randomPosition,
-            behavior: "smooth"
-          });
-
-          }
-        });
-
-          }, 3000)
-          
-        });
-    });
 
 
 function fakeSignUp() {
