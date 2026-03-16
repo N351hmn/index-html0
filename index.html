@@ -123,9 +123,7 @@
         width: 1400px;
         height: 300px;
         margin: auto;
-        overflow: auto;
-        overflow-x: scroll;
-        overflow-y: hidden;
+        overflow: hidden;
         display: flex;
         align-items: center;
       }
@@ -133,10 +131,10 @@
         display: flex;
         gap: 20px;
         scroll-behavior: smooth;
-        overflow-x: hidden;
+        overflow-x: auto;
       }
       .slider-track::-webkit-scrollbar {
-        display: none;
+        display: touch;
       }
       .slide {
         min-width: 250px;
