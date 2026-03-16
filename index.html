@@ -899,11 +899,14 @@
           track.scrollLeft -= 300
         }
 
+        window.addEventListener("load", () => {
+          
         setInterval(() => {
 
           sliders.forEach(track => {
 
-          const maxScroll = track.scrollWidth - track.clientWidth 
+          const maxScroll = track.scrollWidth - 
+    track.clientWidth 
 
           if(maxScroll > 0) {
             const randomPosition = Math.random() * 
@@ -912,12 +915,14 @@
           track.scrollTo({
             left: randomPosition,
             behavior: "smooth"
-          })
+          });
 
           }
-        })
+        });
 
           }, 3000)
+          
+        });
 
         });
 
