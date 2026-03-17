@@ -123,8 +123,9 @@
         width: 1400px;
         height: 300px;
         margin: auto;
-        overflow: hidden;
+        overflow: auto;
         overflow-x: hidden;
+        overflow-y: hidden;
         display: flex;
         align-items: center;
       }
@@ -132,10 +133,10 @@
         display: flex;
         gap: 20px;
         scroll-behavior: smooth;
-        overflow-x: auto;
+        overflow-x: hidden;
       }
       .slider-track::-webkit-scrollbar {
-        display: touch;
+        display: none;
       }
       .slide {
         min-width: 250px;
@@ -174,7 +175,7 @@
         top: 50%;
         transform: translateY(-50%);
         background-color: rgba(255, 255, 255, 0.7);
-        border: 1px solid black;
+        border: none;
         font-size: 24px;
         padding: 5px 10px;
         cursor: pointer;
@@ -213,7 +214,7 @@
         height: 600px;
         width: 1450px;
         overflow-y: hidden;
-
+        overflow-x: hidden;
       }
       
       .sections1 img, .sections2 img,
@@ -366,7 +367,7 @@
             .sections1 img, .sections2 img,
             .sections3 img, .sections4 img,
             .sections5 img {
-              width: 70vw;
+              width: 80vw;
             }
             .sections1 button, .sections2 button,
             .sections3 button, .sections4 button,
@@ -752,7 +753,7 @@
       let cartItems = [];
       let favoriteItems = [];
 
-         function showMsg(msg) {
+      function showMsg(msg) {
         const box = 
         document.getElementById("notification");
         if (box) {
@@ -766,7 +767,7 @@
 
       }
     }
-        
+
        function addToCart(name, price) {
         cartItems.push({ name, price});
         cartTotal = cartItems.reduce((sum, item) => sum
@@ -823,6 +824,7 @@
           showMsg(`${name} deleted!`)
               }
 
+      
 
       let lastScroll = 0
       const nav = document.querySelector(".container")
@@ -930,7 +932,8 @@
             document.querySelector(sectionClass);
             section.style.display = "flex";
 
-            section.querySelectorAll("div").forEach(item =>  {
+            section.querySelectorAll("div").forEach(item => 
+      {
                 item.style.display = "none";
              });
 
